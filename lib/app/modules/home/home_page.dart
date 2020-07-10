@@ -22,15 +22,18 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       body: ListView.builder(
         itemCount: 10,
         itemBuilder: (_, index) {
+          final _photo =
+              'https://images-na.ssl-images-amazon.com/images/I/81bqaMrqceL._AC_SX425_.jpg';
+
           return ListTile(
-            leading: Image.network(
-                'https://images-na.ssl-images-amazon.com/images/I/81bqaMrqceL._AC_SX425_.jpg'),
+            onTap: () => Modular.to.pushNamed('/player', arguments: _photo),
+            leading: Image.network(_photo),
             title: Text('Californication', style: GoogleFonts.ptSansCaption()),
             subtitle: Text(
               'Red Hot Chilli Peppers',
               style: GoogleFonts.ptSansCaption(),
             ),
-            contentPadding: EdgeInsets.all(10),
+            contentPadding: const EdgeInsets.all(10),
           );
         },
       ),
