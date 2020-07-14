@@ -8,7 +8,7 @@ const BandModel = require('../models/band_model')
 router.get('/', async function (req, res) {
     try {
         const bands = await BandModel
-            .find({}, { _id: 1, name: 1, image: 1 })
+            .find({}, { _id: 1, name: 1, image: 1, category: 1 })
             .exec()
 
         res.json(bands)
@@ -25,6 +25,7 @@ router.post('/', async function (req, res) {
             _id: mongoose.Types.ObjectId(),
             name: req.body.name,
             image: req.body.image,
+            category: req.body.category,
             musics: []
         })
 
